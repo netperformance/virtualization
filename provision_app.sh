@@ -7,4 +7,4 @@ rm -rf /var/www/html
 ln -s /vagrant /var/www/html
 service apache2 start
 cd /vagrant
-vagrant wget -q https://raw.githubusercontent.com/netperformance/virtualization/master/index.html
+wget -q https://raw.githubusercontent.com/netperformance/virtualization/master/index.html
