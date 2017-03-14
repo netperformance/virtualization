@@ -45,4 +45,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      db01.vm.network "private_network", ip: "192.168.10.6"
   end
 
+  # VM DNS
+  config.vm.define "dns" do |dns|
+     dns.vm.hostname = "dns"
+     dns.vm.provision "shell", path: "https://raw.githubusercontent.com/netperformance/virtualization/master/provision_dns.sh"
+     dns.vm.network "private_network", ip: "192.168.10.7"
+  end
+
+  # VM Configuration (Ansible)
+  config.vm.define "conf" do |conf|
+     conf.vm.hostname = "conf"
+     conf.vm.provision "shell", path: "https://raw.githubusercontent.com/netperformance/virtualization/master/provision_conf.sh"
+     conf.vm.network "private_network", ip: "192.168.10.8"
+  end
+
 end
